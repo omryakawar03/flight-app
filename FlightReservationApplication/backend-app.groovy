@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Code-Pull'){
             steps{
-                git branch: 'main', url: 'https://github.com/mayurmwagh/flight-reservation-app.git'    
+                git branch: 'main', url: 'https://github.com/omryakawar03/flight-app.git'    
             }
         }
         stage('Code-Build'){
@@ -19,7 +19,7 @@ pipeline {
                 withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-token') {
                  sh '''
                     cd FlightReservationApplication
-                    mvn sonar:sonar -Dsonar.projectKey=flight-reservation
+                    mvn sonar:sonar -Dsonar.projectKey=back
                  '''
                 }
             }
@@ -28,9 +28,9 @@ pipeline {
             steps{
                 sh '''
                     cd FlightReservationApplication
-                    docker build -t mayurwagh/flight-reservation-pls-18:latest . 
-                    docker push mayurwagh/flight-reservation-pls-18:latest 
-                    docker rmi mayurwagh/flight-reservation-pls-18:latest 
+                    docker build -t omryakawar/flight-reservation-pls-18:latest . 
+                    docker push omryakawar/flight-reservation-pls-18:latest 
+                    docker rmi omryakawar/flight-reservation-pls-18:latest 
                 '''
             }
         }
