@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Code-Pull'){
             steps{
-                git branch: 'main', url: 'https://github.com/mayurmwagh/flight-reservation-app.git'    
+                git branch: 'main', url: 'https://github.com/omryakawar03/flight-app.git'    
             }
         }
         stage('Code-Build'){
@@ -19,7 +19,7 @@ pipeline{
             steps{
                 sh '''
                 cd frontend
-                aws s3 sync dist/ s3://cblkdfsfdsc-frnewcjdnd-project-bux/ 
+                aws s3 sync dist/ s3://new-buck-for-static-site-flight/ 
                 '''  
             }
         }
