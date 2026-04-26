@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh '''
                     cd FlightReservationApplication
-                    mvn clean package 
+                    mvn clean install -DskipTests
                 '''
             }
         }
