@@ -1,6 +1,7 @@
 pipeline {
     agent any
-     tools { jdk 'jdk-17'
+     tools { 
+         jdk 'jdk-17'
      }
     stages {
         stage('Code-pull') {
@@ -8,7 +9,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/omryakawar03/flight-app.git'
             }
         }
-        stage('Build') {
+        stage('Builds') {
             steps {
                 sh '''
                     cd FlightReservationApplication
